@@ -1,0 +1,34 @@
+<div class="container mt-3">
+    <a href="/cookie/add" class="btn btn-primary">Add Cookie</a>
+    <h2>Danh Sách Cookies</h2>
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+    {{#if success}}
+        <div class="alert alert-success">Cookie created successfully!</div>
+    {{/if}}
+    <div class="table-responsive-lg">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th>Email</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each cookies}}
+                <tr>
+                    <td>{{this.email}}</td>
+                    <td class="truncate">{{this.value}}</td>
+                    <td>
+                        <a href="/cookie/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+                        <a href="/cookie/{{this.id}}/delete" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
